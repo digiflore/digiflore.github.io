@@ -1,0 +1,76 @@
+body {
+  /* evite les rebords blancs */
+  margin: 0;
+}
+
+header {
+  /* paramètre du header */
+  background-color: #222222;
+  position: relative;
+  height: 80px;
+  top: 0;
+}
+
+header img {
+  /* la largeur de l'image du header est de 50 px */
+  width: 50px;
+}
+
+header>* {
+  /* Centre le contenu du header */
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  margin: 0 10px;
+}
+
+header>ul {
+  /* Tous les Ul se placent à droite */
+  right: 0;
+  text-decoration: none;
+}
+
+header,
+header a {
+  /* Tous les textes du header sont de couleurs blanches*/
+  color: white;
+  text-decoration: none;
+}
+
+header a:nth-child(2) {
+  /* Place le titre du site*/
+  font-size: 20px;
+  font-weight: 600;
+  margin-left: 90px;
+}
+
+header>ul li {
+  margin: 10px;
+  display: inline-block;
+}
+
+header>ul li:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.page-main {
+  display: block;
+  margin: auto;
+  width: 80%;
+  margin-top: 50px;
+}
+
+.bienvenue {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.bienvenue img {
+  margin: auto;
+  width: 500px;
+}
+
+.bienvenue .text {
+  margin-left: 50px;
+}
