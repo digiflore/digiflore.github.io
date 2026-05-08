@@ -266,6 +266,16 @@
         text-align: center;
       }
 
+      .success-message {
+        display: none;
+        margin-top: 15px;
+        padding: 12px;
+        background: #e6ffed;
+        color: #1a7f37;
+        border: 1px solid #1a7f37;
+        border-radius: 8px;
+      }
+
       footer {
         flex-direction: column;
         gap: 0.5rem;
@@ -302,7 +312,7 @@
           que possible.</p>
       </div>
 
-      <form class="contact-form" id="contact-form" action="https://formspree.io/f/xjgledgq" method="POST">
+      <form class="contact-form" id="contact-form" action="#" method="POST">
 
         <div class="form-group">
           <label for="name">Nom</label>
@@ -323,7 +333,7 @@
 
 
       </form>
-
+      <div id="success-message" class="success-message"></div>
     </div>
   </main>
 
@@ -332,11 +342,63 @@
     <span class="footer-copy">© 2026 Digiflore</span>
     <a href="./index.html">← Retour à l'accueil</a>
   </footer>
-
   <script>
-    // Le formulaire est géré par Formspree — aucune configuration supplémentaire nécessaire.
-  </script>
 
+    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyWo7IpCwC4iFWpF3VNdk06eFi-ncjYUhINA3RjvtRSHUefAot4X3NbPzge7lBrNNo/exec";
+
+    document.getElementById("contact-form").addEventListener("submit", async function (e) {
+      e.preventDefault();
+
+      const msg = document.getElementById("success-message");
+
+      msg.style.display = "block";
+      msg.style.color = "#333";
+      msg.textContent = "Envoi en cours...";
+
+      const data = {
+        nom: document.getElementById("name").value,
+        email: document.getElementById("email").value,
+        message: document.getElementById("message").value
+      };
+
+      try {
+        const res = await fetch(SCRIPT_URL, {
+          method: "POST",
+          mode: "no-cors",  // ← ajout
+          body: JSON.stringify({
+            nom: document.getElementById("name").value,
+            email: document.getElementById("email").value,
+            message: document.getElementById("message").value
+          })
+        });
+
+        console.log("Statut :", res.status);
+        const text = await res.text();
+        console.log("Réponse :", text);
+        // 🔥 afficher message
+        msg.style.display = "block";
+        msg.textContent = "Message envoyé 👍";
+
+        // reset form
+        this.reset();
+
+        // cacher après 4s
+        setTimeout(() => {
+          msg.style.display = "none";
+        }, 4000);
+
+
+      } catch (err) {
+        console.error(err);
+        msg.style.display = "block";
+        msg.style.color = "red";
+        msg.textContent = "Erreur d'envoi ❌";
+        console.error(err);
+      }
+
+    });
+
+  </script>
 </body>
 
 </html>
