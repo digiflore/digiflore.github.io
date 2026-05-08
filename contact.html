@@ -1,31 +1,397 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact — Digiflore</title>
+  <meta name="description" content="Contacter Digiflore — créatrice numérique." />
+  <link rel="icon" href="./img/digiflore - logo.png" type="image/png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Lora:ital@1&display=swap"
+    rel="stylesheet" />
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --cream: #FAF5EF;
+      --beige: #F0E3D0;
+      --border: #EAD9C8;
+      --accent: #C9A88A;
+      --brown-dark: #2A2118;
+      --brown-mid: #6B4F3A;
+      --brown-muted: #9C8472;
+      --footer-bg: #F0E3D0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 400;
+      background: var(--cream);
+      color: var(--brown-dark);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.25rem 2.5rem;
+      background: var(--cream);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--brown-dark);
+      text-decoration: none;
+    }
+
+    .nav-logo img {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      image-rendering: pixelated;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--brown-muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--brown-dark);
+    }
+
+    /* ── MAIN ── */
+    main {
+      flex: 1;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      padding: 4rem 2.5rem;
+    }
+
+    .contact-wrap {
+      width: 100%;
+      max-width: 560px;
+    }
+
+    .contact-header {
+      margin-bottom: 2.5rem;
+    }
+
+    .contact-header .section-num {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--accent);
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+
+    .contact-header h1 {
+      font-family: 'Lora', serif;
+      font-style: italic;
+      font-size: 36px;
+      color: var(--brown-mid);
+      margin-bottom: 0.75rem;
+      line-height: 1.2;
+    }
+
+    .contact-header p {
+      font-size: 14px;
+      line-height: 1.7;
+      color: var(--brown-muted);
+    }
+
+    /* ── FORM ── */
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .form-group label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--brown-mid);
+    }
+
+    .form-group input,
+    .form-group textarea {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 14px;
+      color: var(--brown-dark);
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 0.75rem 1rem;
+      width: 100%;
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      resize: none;
+    }
+
+    .form-group input::placeholder,
+    .form-group textarea::placeholder {
+      color: var(--accent);
+      opacity: 0.7;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(201, 168, 138, 0.15);
+    }
+
+    .form-group textarea {
+      min-height: 150px;
+    }
+
+    .btn-submit {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--brown-dark);
+      background: var(--beige);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 0.9rem 2rem;
+      cursor: pointer;
+      transition: background 0.2s, border-color 0.2s, transform 0.15s;
+      align-self: flex-start;
+    }
+
+    .btn-submit:hover {
+      background: var(--border);
+      border-color: var(--accent);
+      transform: translateY(-2px);
+    }
+
+    .btn-submit:active {
+      transform: translateY(0);
+    }
+
+    /* ── LIENS SOCIAUX ── */
+    .social-links {
+      margin-top: 2.5rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .social-links p {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.25rem;
+    }
+
+    .social-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      color: var(--brown-mid);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .social-link:hover {
+      color: var(--brown-dark);
+    }
+
+    .social-link .dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+      flex-shrink: 0;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      padding: 1.25rem 2.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: var(--footer-bg);
+      border-top: 1px solid var(--border);
+    }
+
+    .footer-copy {
+      font-size: 11px;
+      color: var(--brown-muted);
+      letter-spacing: 0.5px;
+    }
+
+    footer a {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      color: var(--brown-mid);
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      color: var(--brown-dark);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 640px) {
+      nav {
+        padding: 1rem 1.25rem;
+      }
+
+      .nav-links {
+        gap: 1.25rem;
+      }
+
+      main {
+        padding: 2.5rem 1.25rem;
+      }
+
+      .btn-submit {
+        align-self: stretch;
+        text-align: center;
+      }
+
+      footer {
+        flex-direction: column;
+        gap: 0.5rem;
+        text-align: center;
+      }
+    }
+  </style>
 </head>
 
 <body>
-  <h2 class="title-section">Formulaire de contact</h2>
-  <div class="form-contact-container">
-    <form>
-      <div>
-        <label for="name">Nom :</label>
-        <input type="text" name="name" placeholder="John Doe" />
-      </div>
-      <div>
-        <label for="mail">Adresse mail :</label>
-        <input type="text" name="mail" placeholder="john.doe@gmail.com" />
-      </div>
-      <div>
-        <label for="message">Message :</label>
-        <textarea name="message" cols="30" rows="5" placeholder="Je vous contacte pour ..."></textarea>
-      </div>
-    </form>
 
-    </form>
+  <!-- NAV -->
+  <nav>
+    <a href="./index.html" class="nav-logo">
+      <img src="./img/digiflore - logo.png" alt="Logo Digiflore" />
+      Digiflore
+    </a>
+    <ul class="nav-links">
+      <li><a href="./index.html">Accueil</a></li>
+      <li><a href="./apropos.html">À propos</a></li>
+      <li><a href="./contact.html" class="active">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- MAIN -->
+  <main>
+    <div class="contact-wrap">
+
+      <div class="contact-header">
+        <span class="section-num">Contact</span>
+        <h1>Dis-moi bonjour ✨</h1>
+        <p>Une question, une collaboration, ou juste l'envie de discuter ? Envoie-moi un message, je te répondrai dès
+          que possible.</p>
+      </div>
+
+      <form class="contact-form" id="contact-form" action="https://formspree.io/f/xjgledgq" method="POST">
+
+        <div class="form-group">
+          <label for="name">Nom</label>
+          <input type="text" id="name" name="name" placeholder="Ton prénom ou pseudo" required />
+        </div>
+
+        <div class="form-group">
+          <label for="email">Adresse mail</label>
+          <input type="email" id="email" name="email" placeholder="ton@email.com" required />
+        </div>
+
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" placeholder="Écris ton message ici…" required></textarea>
+        </div>
+
+        <button type="submit" class="btn-submit">Envoyer →</button>
+
+
+      </form>
+
+      <!-- Liens alternatifs -->
+      <div class="social-links">
+        <p>Ou retrouve-moi sur</p>
+        <a class="social-link" href="https://github.com/digiflore" target="_blank" rel="noopener">
+          <span class="dot"></span> GitHub — github.com/digiflore
+        </a>
+        <a class="social-link" href="https://digiflore.itch.io/" target="_blank" rel="noopener">
+          <span class="dot"></span> itch.io — digiflore.itch.io
+        </a>
+        <a class="social-link" href="https://www.atelierdesauteurs.com/author/406882432/la-plume-de-flore/"
+          target="_blank" rel="noopener">
+          <span class="dot"></span> Atelier des auteurs — La plume de Flore
+        </a>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <span class="footer-copy">© 2026 Digiflore</span>
+    <a href="./index.html">← Retour à l'accueil</a>
+  </footer>
+
+  <script>
+    // Le formulaire est géré par Formspree — aucune configuration supplémentaire nécessaire.
+  </script>
+
 </body>
 
 </html>
