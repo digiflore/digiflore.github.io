@@ -273,6 +273,47 @@
       border-color: var(--accent);
     }
 
+    /* ── LIENS SOCIAUX ── */
+    .social-links {
+      margin-top: 2.5rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .social-links p {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.25rem;
+    }
+
+    .social-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      color: var(--brown-mid);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .social-link:hover {
+      color: var(--brown-dark);
+    }
+
+    .social-link .dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+      flex-shrink: 0;
+    }
+
     /* ── FOOTER ── */
     footer {
       padding: 1.25rem 2.5rem;
@@ -380,8 +421,6 @@
         Que ce soit en écrivant du code, en concevant un jeu indépendant ou en posant des mots sur le papier, chaque
         projet est pour moi une nouvelle façon d'explorer et de partager.
       </p>
-      <!-- ✏️ Remplace ces paragraphes par ta vraie bio ! -->
-      <p class="placeholder">— Ajoute ici ta vraie histoire, tes inspirations, ton parcours… ✏️</p>
     </div>
 
     <!-- CENTRES D'INTÉRÊT -->
@@ -404,6 +443,24 @@
         <h3>Écriture</h3>
         <p>Textes et récits sur l'Atelier des auteurs.</p>
       </div>
+    </div>
+    <!-- Liens alternatifs -->
+    <div class="social-links">
+      <p>Retrouve-moi sur</p>
+      <a class="social-link" href="https://www.patreon.com/cw/Digiflore" target="_blank" rel="noopener">
+        <span class="dot"></span>Patreon
+      </a>
+      <a class="social-link" href="https://github.com/digiflore" target="_blank" rel="noopener">
+        <span class="dot"></span> GitHub
+      </a>
+      <a class="social-link" href="https://digiflore.itch.io/" target="_blank" rel="noopener">
+        <span class="dot"></span> itch.io
+      </a>
+      <a class="social-link" href="https://www.atelierdesauteurs.com/author/406882432/la-plume-de-flore/"
+        target="_blank" rel="noopener">
+        <span class="dot"></span> Atelier des auteurs
+      </a>
+      <br>
     </div>
 
     <!-- CTA -->
