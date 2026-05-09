@@ -2,20 +2,18 @@
 <html lang="fr">
 
 <head>
-  <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-BXMVHFDKNB"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
-
     gtag('config', 'G-BXMVHFDKNB');
   </script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Services — Digiflore</title>
   <meta name="description"
-    content="Services proposés par Digiflore — Google Workspace, Forms, Sheets, Apps Script, automatisations et génération de documents." />
+    content="Services proposés par Digiflore — Google Workspace, bases de données, automatisations et génération de documents." />
   <link rel="icon" href="../img/logo.png" type="image/png" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -55,7 +53,6 @@
       flex-direction: column;
     }
 
-    /* ── NAV ── */
     nav {
       position: sticky;
       top: 0;
@@ -108,14 +105,12 @@
       color: var(--brown-dark);
     }
 
-    /* ── MAIN ── */
     main {
       flex: 1;
       padding: 4rem 2.5rem;
-      max-width: 820px;
+      max-width: 900px;
     }
 
-    /* ── EN-TÊTE ── */
     .page-header {
       margin-bottom: 3rem;
       padding-bottom: 2.5rem;
@@ -148,27 +143,42 @@
       max-width: 520px;
     }
 
-    /* ── CARTE SERVICE ── */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.25rem;
+      margin-bottom: 2.5rem;
+    }
+
     .service-card {
       background: #fff;
       border: 1px solid var(--border);
       border-radius: 16px;
-      overflow: hidden;
-      margin-bottom: 1.5rem;
-      transition: box-shadow 0.2s;
-    }
-
-    .service-card:hover {
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.06);
-    }
-
-    .service-card-header {
+      padding: 1.75rem;
+      text-decoration: none;
+      color: inherit;
       display: flex;
-      align-items: center;
-      gap: 1.25rem;
-      padding: 1.5rem 1.75rem;
-      border-bottom: 1px solid var(--border);
-      background: var(--cream);
+      flex-direction: column;
+      gap: 1rem;
+      transition: box-shadow 0.2s, transform 0.2s, border-color 0.2s;
+    }
+
+    .service-card:not(.coming-soon):hover {
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.07);
+      transform: translateY(-3px);
+      border-color: var(--accent);
+    }
+
+    .service-card.coming-soon {
+      opacity: 0.45;
+      cursor: default;
+      pointer-events: none;
+    }
+
+    .card-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
     }
 
     .service-icon {
@@ -184,26 +194,6 @@
       flex-shrink: 0;
     }
 
-    .service-card-header-text {
-      flex: 1;
-    }
-
-    .service-label {
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 3px;
-    }
-
-    .service-name {
-      font-size: 18px;
-      font-weight: 700;
-      color: var(--brown-dark);
-      letter-spacing: -0.3px;
-    }
-
     .service-badge {
       font-size: 10px;
       font-weight: 700;
@@ -217,124 +207,44 @@
       white-space: nowrap;
     }
 
-    .service-card-body {
-      padding: 1.75rem;
+    .service-badge.soon {
+      background: transparent;
+      color: var(--brown-muted);
+      border-color: var(--border);
     }
 
-    .service-desc {
-      font-size: 14px;
-      line-height: 1.8;
-      color: var(--brown-mid);
-      margin-bottom: 1.5rem;
-    }
-
-    /* ── LISTE DE PRESTATIONS ── */
-    .prestations-title {
+    .card-label {
       font-size: 10px;
       font-weight: 700;
       letter-spacing: 2px;
       text-transform: uppercase;
       color: var(--accent);
-      margin-bottom: 0.75rem;
+      margin-bottom: 4px;
     }
 
-    .prestations {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 0.6rem;
-      margin-bottom: 1.75rem;
-    }
-
-    .prestation-item {
-      display: flex;
-      align-items: flex-start;
-      gap: 8px;
-      font-size: 13px;
-      line-height: 1.5;
-      color: var(--brown-mid);
-    }
-
-    .prestation-item::before {
-      content: "→";
-      color: var(--accent);
+    .card-name {
+      font-size: 17px;
       font-weight: 700;
-      flex-shrink: 0;
-      margin-top: 1px;
+      color: var(--brown-dark);
+      letter-spacing: -0.3px;
+      margin-bottom: 0.5rem;
     }
 
-    /* ── EXEMPLES D'USAGE ── */
-    .examples {
-      background: var(--cream);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 1.1rem 1.25rem;
-      margin-bottom: 1.75rem;
-    }
-
-    .examples-title {
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 0.6rem;
-    }
-
-    .examples p {
+    .card-desc {
       font-size: 13px;
-      line-height: 1.7;
-      color: var(--brown-muted);
-      font-style: italic;
-    }
-
-    /* ── FOOTER CARTE ── */
-    .service-card-footer {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding-top: 1.25rem;
-      border-top: 1px solid var(--border);
-      flex-wrap: wrap;
-      gap: 1rem;
-    }
-
-    .service-price {
-      font-size: 13px;
+      line-height: 1.6;
       color: var(--brown-muted);
     }
 
-    .service-price strong {
-      font-size: 16px;
+    .card-arrow {
+      font-size: 13px;
       font-weight: 700;
-      color: var(--brown-dark);
+      color: var(--accent);
+      margin-top: auto;
     }
 
-    .btn {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      padding: 0.7rem 1.4rem;
-      border-radius: 10px;
-      text-decoration: none;
-      border: 1px solid var(--border);
-      transition: transform 0.15s, border-color 0.2s;
-    }
-
-    .btn:hover {
-      transform: translateY(-2px);
-      border-color: var(--accent);
-    }
-
-    .btn-primary {
-      background: var(--beige);
-      color: var(--brown-dark);
-    }
-
-    /* ── NOTE BAS DE PAGE ── */
     .page-note {
-      margin-top: 2.5rem;
+      margin-top: 1rem;
       padding-top: 2rem;
       border-top: 1px solid var(--border);
       font-size: 13px;
@@ -349,7 +259,6 @@
       text-underline-offset: 3px;
     }
 
-    /* ── FOOTER ── */
     footer {
       padding: 1.25rem 2.5rem;
       display: flex;
@@ -377,7 +286,6 @@
       color: var(--brown-dark);
     }
 
-    /* ── RESPONSIVE ── */
     @media (max-width: 640px) {
       nav {
         padding: 1rem 1.25rem;
@@ -391,13 +299,8 @@
         padding: 2rem 1.25rem;
       }
 
-      .service-card-header {
-        flex-wrap: wrap;
-      }
-
-      .service-card-footer {
-        flex-direction: column;
-        align-items: flex-start;
+      .services-grid {
+        grid-template-columns: 1fr;
       }
 
       footer {
@@ -411,7 +314,6 @@
 
 <body>
 
-  <!-- NAV -->
   <nav>
     <a href="../index.html" class="nav-logo">
       <img src="../img/logo.png" loading="lazy" alt="Logo Digiflore" />
@@ -425,66 +327,69 @@
     </ul>
   </nav>
 
-  <!-- MAIN -->
   <main>
 
     <div class="page-header">
       <span class="section-num">Services</span>
       <h1>Ce que je peux faire pour toi ✨</h1>
-      <p>Des solutions sur mesure autour de Google Workspace — pour automatiser, organiser et gagner du temps au
-        quotidien.</p>
+      <p>Des solutions sur mesure — pour automatiser, organiser et gagner du temps au quotidien.</p>
     </div>
 
-    <!-- CARTE SERVICE : GOOGLE WORKSPACE -->
-    <div class="service-card">
+    <div class="services-grid">
 
-      <div class="service-card-header">
-        <div class="service-icon">🗂️</div>
-        <div class="service-card-header-text">
-          <p class="service-label">Automatisation & outils</p>
-          <p class="service-name">Google Workspace sur mesure</p>
+      <a href="./services/workspace.html" class="service-card">
+        <div class="card-top">
+          <div class="service-icon">🗂️</div>
+          <span class="service-badge">Sur devis</span>
         </div>
-        <span class="service-badge">Sur devis</span>
+        <div>
+          <p class="card-label">Automatisation & outils</p>
+          <p class="card-name">Google Workspace sur mesure</p>
+          <p class="card-desc">Formulaires intelligents, tableaux de bord, génération de documents et scripts Apps
+            Script adaptés à ton activité.</p>
+        </div>
+        <p class="card-arrow">Découvrir →</p>
+      </a>
+
+      <a href="./services/bases-de-donnees.html" class="service-card">
+        <div class="card-top">
+          <div class="service-icon">🗄️</div>
+          <span class="service-badge">Sur devis</span>
+        </div>
+        <div>
+          <p class="card-label">Données & structuration</p>
+          <p class="card-name">Bases de données</p>
+          <p class="card-desc">Conception et mise en place de bases de données Access ou MySQL adaptées à tes besoins
+            métier.</p>
+        </div>
+        <p class="card-arrow">Découvrir →</p>
+      </a>
+
+      <div class="service-card coming-soon">
+        <div class="card-top">
+          <div class="service-icon">🔧</div>
+          <span class="service-badge soon">Bientôt</span>
+        </div>
+        <div>
+          <p class="card-label">À venir</p>
+          <p class="card-name">Nouveau service</p>
+          <p class="card-desc">Un nouveau service arrive prochainement.</p>
+        </div>
       </div>
 
-      <div class="service-card-body">
-
-        <p class="service-desc">
-          Tu passes trop de temps sur des tâches répétitives ? Je conçois des outils Google Workspace adaptés à ton
-          activité : formulaires intelligents, tableaux de bord automatisés, génération de documents en un clic et
-          scripts Apps Script personnalisés.
-        </p>
-
-        <p class="prestations-title">Ce que j'assure</p>
-        <div class="prestations">
-          <span class="prestation-item">Création de formulaires Google Forms</span>
-          <span class="prestation-item">Tableaux de suivi Google Sheets</span>
-          <span class="prestation-item">Automatisations Apps Script (JavaScript)</span>
-          <span class="prestation-item">Génération automatique de documents</span>
-          <span class="prestation-item">Envoi d'emails automatiques</span>
-          <span class="prestation-item">Connexion entre plusieurs outils Google</span>
-          <span class="prestation-item">Tableaux de bord avec graphiques</span>
-          <span class="prestation-item">Export et mise en forme de rapports</span>
+      <div class="service-card coming-soon">
+        <div class="card-top">
+          <div class="service-icon">✨</div>
+          <span class="service-badge soon">Bientôt</span>
         </div>
-
-        <div class="examples">
-          <p class="examples-title">Exemples concrets</p>
-          <p>Un formulaire de commande qui remplit automatiquement un Google Sheet, génère une facture PDF et envoie une
-            confirmation par email — sans aucune manipulation manuelle.</p>
-          <br>
-          <p>Un formulaire pour des adhésions en ligne, calcule du prix total selon divers critères, centralisation des
-            données,génération du document d'inscription et envoi automatique par mail.</p>
+        <div>
+          <p class="card-label">À venir</p>
+          <p class="card-name">Nouveau service</p>
+          <p class="card-desc">Un nouveau service arrive prochainement.</p>
         </div>
-
-        <div class="service-card-footer">
-          <p class="service-price"><!--À partir de <strong>XX €</strong> — !-->Tarif selon la complexité du projet</p>
-          <a href="./contact.html" class="btn btn-primary">Me contacter →</a>
-        </div>
-
       </div>
+
     </div>
-
-    <!-- ✏️ Duplique le bloc .service-card ci-dessus pour ajouter d'autres services -->
 
     <p class="page-note">
       Tu as un besoin spécifique qui ne rentre pas dans ces cases ?
@@ -493,7 +398,6 @@
 
   </main>
 
-  <!-- FOOTER -->
   <footer>
     <span class="footer-copy">© 2026 Digiflore</span>
     <a href="./contact.html">Contact →</a>

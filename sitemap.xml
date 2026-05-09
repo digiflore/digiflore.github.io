@@ -23,6 +23,20 @@
   </url>
 
   <url>
+    <loc>https://digiflore.github.io/pages/services/workspace.html</loc>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://digiflore.github.io/pages/services/bases-de-donnees.html</loc>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
     <loc>https://digiflore.github.io/pages/contact.html</loc>
     <lastmod>2026-05-09</lastmod>
     <changefreq>yearly</changefreq>
