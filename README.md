@@ -5,11 +5,11 @@ Bienvenue sur mon espace de création.
 Ce site regroupe mes projets autour de :
 - 💻 Développement informatique
 - 🎮 Jeux vidéo
-- ✍️ Écriture
+<!-- - ✍️ Écriture -->
 
 ## 🔗 Accéder au site
 
-👉 https://digiflore.github.io/digiflore-works/
+👉 https://digiflore.github.io/
 
 ## 🧩 Mes univers
 
@@ -21,9 +21,9 @@ Découvrez mes projets et expérimentations :
 Mes jeux et prototypes :
 👉 [itch.io](https://digiflore.itch.io/)
 
-### ✍️ Écriture (Atelier des auteurs - anciennement Scribay)
+<!-- ### ✍️ Écriture (Atelier des auteurs - anciennement Scribay)
 Mes textes et histoires :
-👉 [Atelier des auteurs](https://www.atelierdesauteurs.com/author/406882432/la-plume-de-flore)
+👉 [Atelier des auteurs](https://www.atelierdesauteurs.com/author/406882432/la-plume-de-flore) -->
 
 ## 🎯 Objectif
 
